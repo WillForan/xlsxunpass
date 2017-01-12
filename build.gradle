@@ -1,13 +1,22 @@
-apply plugin: 'java'
-apply plugin: 'application'
-
-mainClassName = 'xlsxunpass'
-sourceSets.main.java.srcDirs = ['./']
+plugins {
+   id 'com.github.johnrengelman.shadow' version '1.2.4'
+   id 'java'
+}
 
 repositories {
     mavenCentral()
 }
+
 dependencies {
  compile 'org.apache.poi:poi:3.15'
  compile 'org.apache.poi:poi-ooxml:3.15'
 }
+
+
+// resolve: "Error: Could not find or load main class xlsxunpass"
+sourceSets.main.java.srcDirs = ['./']
+
+// resolves manifest DNE error in gradle run
+//  "no main manifest attribute, in .. "
+jar { manifest { attributes 'Main-Class': 'xlsxunpass' } }
+
