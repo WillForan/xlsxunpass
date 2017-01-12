@@ -1,17 +1,22 @@
-# decrypt sheets
+# xlsx unpass
+create a passwordless version of a password protected xlsx file
+written to work around `unoconv` "Failed to connect to... /Connector : couldn't connect to socket" errors
+
 ## use
+
 ```
 java -jar xlsxunpass.jar input.xslx nopassout.xlsx infile_password
 ```
 
+
 ## build
-build using gradle and the shadow plugin
+Using gradle and the shadow plugin
 ```
-gradle build
+gradle shadowJar
 java -jar build/libs/xlsxunpass-all.jar input.xlsx output.xlsx password
 ```
 
-There is also a `Makefile` but `commons-collection` is not in the classpath for the `run` section.
+There is also a `Makefile` but `commons-collection` is not in the classpath for the `run` ref section.
 
 
 # Notes
