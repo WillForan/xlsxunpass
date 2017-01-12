@@ -1,7 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'decrypt'
+mainClassName = 'xlsxunpass'
+sourceSets.main.java.srcDirs = ['./']
 
 repositories {
     mavenCentral()

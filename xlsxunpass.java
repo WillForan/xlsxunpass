@@ -1,4 +1,4 @@
-package decrypt;
+//package xlsxunpass;
 
 import java.io.*;
 
@@ -6,7 +6,7 @@ import org.apache.poi.openxml4j.exceptions.*;
 import org.apache.poi.xssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
 
-class decrypt {
+class xlsxunpass {
 // copied from
 // http://stackoverflow.com/questions/1204382/how-can-we-read-protected-password-excel-file-xls-with-poi-api
 // depneds on apache-poi org.apache.poi;
