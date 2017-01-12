@@ -1,10 +1,12 @@
 # xlsx unpass
-create a passwordless version of a password protected xlsx file
-written to work around `unoconv` "Failed to connect to... /Connector : couldn't connect to socket" errors
+create a passwordless version of a password protected xlsx file.
+
+`unoconv` is a more robust utility. This has been written to work around "Failed to connect to... / Connector : couldn't connect to socket" errors
 
 ## use
 
 ```
+curl -L -o xlsxunpass.jar 'https://github.com/WillForan/xlsxunpass/blob/master/xlsxunpass.jar?raw=true'
 java -jar xlsxunpass.jar input.xslx nopassout.xlsx infile_password
 ```
 
