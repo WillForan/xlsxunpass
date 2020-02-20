@@ -1,5 +1,5 @@
 plugins {
-   id 'com.github.johnrengelman.shadow' version '1.2.4'
+   id 'com.github.johnrengelman.shadow' version '5.2.0'
    id 'java'
 }
 
@@ -8,8 +8,8 @@ repositories {
 }
 
 dependencies {
- compile 'org.apache.poi:poi:3.15'
- compile 'org.apache.poi:poi-ooxml:3.15'
+ compile 'org.apache.poi:poi:4.1.2'
+ compile 'org.apache.poi:poi-ooxml:4.1.2'
 }
 
 

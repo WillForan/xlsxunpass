@@ -1,13 +1,22 @@
-all: xlsxunpass.class
+.PHONY: fat all
+all: fat
+fat: xlsxunpass.jar
+xlsxunpass.jar: xlsxunpass.java build.gradle
+	gradle shadowJar
+	cp ./build/libs/xlsxunpass-all.jar xlsxunpass.jar
 
-poi-3.15/:
-	wget http://apache.mesi.com.ar/poi/release/bin/poi-bin-3.15-20160924.tar.gz
-	tar -xzvf poi-bin-3.15-20160924.tar.gz
+# below only useful for quick testing?
+POIVER = 4.1.2
+POIDATE = 20200217
+PROVIDER = http://apache-mirror.8birdsvideo.com/poi/release/bin/
 
-xlsxunpass.class: poi-3.15 xlsxunpass.java
-	# assume poi-3.15 is in working directory, tar extract of poi-bin-3.15-20160924.tar.gz
-	javac -cp poi-3.15/poi-ooxml-3.15.jar:poi-3.15/poi-3.15.jar xlsxunpass.java
+poi-$(POIVER)/:
+	wget ${PROVIDER}/poi-bin-$(POIVER)-$(POIDATE).tar.gz
+	tar -xzvf poi-bin-$(POIVER)-$(POIDATE).tar.gz
+
+xlsxunpass.class: poi-$(POIVER)/ xlsxunpass.java
+	javac -cp poi-$(POIVER)/poi-ooxml-$(POIVER).jar:poi-$(POIVER)/poi-$(POIVER).jar xlsxunpass.java
 
 # this is just here for reference
 run:
-	java -cp "poi-3.15/ooxml-lib/*:poi-3.15/*:./" xlsxunpass
+	java -cp "poi-$(POIVER)/ooxml-lib/*:poi-$(POIVER)/*:./" xlsxunpass
